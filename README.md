@@ -5,12 +5,12 @@ We propose an environment for visualizing and exploring TCIA data . We leverage 
 ### Bleeding edge deployment guide ###
 ##### Prerequisites
 * Node.js
-* Grunt ``` npm install grunt ``` (might require root)
+* Grunt ``` npm install grunt-cli -g ``` (might require root)
 ##### Installation
 * Clone the repository
 * Switch to dev branch ```git checkout dev``` 
 * ```npm install``` (might require root)
-* ```grunt browserify```
+* On the project root run ```grunt browserify``` 
 
 
 
