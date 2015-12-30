@@ -3,10 +3,10 @@
 We propose an environment for visualizing and exploring TCIA data . We leverage TCIA's REST API to programmatically query and download data. We propose methods to create a new search interface to the data as an alternate way to explore the contents of TCIA, create dynamic dashboards that can be extended to support the exploration of TCIA data using Javascript libraries like crossfilter and dc.js. This method is extendible to support data from other remote archives.
 
 ### Bleeding edge deployment guide ###
-#### Prerequisites
+##### Prerequisites
 * Node.js
 * Grunt ``` npm install grunt ``` (might require root)
-#### Installation
+##### Installation
 * Clone the repository
 * Switch to dev branch ```git checkout dev``` 
 * ```npm install``` (might require root)
@@ -14,7 +14,7 @@ We propose an environment for visualizing and exploring TCIA data . We leverage 
 
 
 
-### Quick start guide ###
+### Quick start guide(Stable version) ###
 
 ##### Installation
 
