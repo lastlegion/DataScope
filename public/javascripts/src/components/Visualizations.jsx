@@ -5,9 +5,7 @@ var ReactBootstrap = require("react-bootstrap");
 
 var Tabs      = ReactBootstrap.Tabs,
     Tab         = ReactBootstrap.Tab,
-    Glyphicon       = ReactBootstrap.Glyphicon,
     Modal = ReactBootstrap.Modal,
-    Input           = ReactBootstrap.Input,
     Button          = ReactBootstrap.Button;
 
 
@@ -17,39 +15,39 @@ var Tabs      = ReactBootstrap.Tabs,
 var OptionsBar = React.createClass({
     getInitialState: function(){
 
-    console.log('woot');
-    return { showModal: false };
+        //console.log("woot");
+        return { showModal: false };
     },
 
     close: function(){
-    this.setState({ showModal: false });
+        this.setState({ showModal: false });
     },
 
     open: function(){
-    this.setState({ showModal: true });
+        this.setState({ showModal: true });
     },
     render: function(){
 
-        var self = this;
-        console.log(self.state.showModal);
-        console.log(this.props.currData);
+        //var self = this;
+        //console.log(self.state.showModal);
+        //console.log(this.props.currData);
         var attributes = [];
 
         for(var i in this.props.currData){
-            attributes.push(i)
+            attributes.push(i);
         }
 
-        var url = "/save?attributes={list:"+(attributes)+"}"
+        var url = "/save?attributes={list:"+(attributes)+"}";
 
         var Attributes = attributes.map(function(d){
             return(
                 <input type="checkbox" value="{d}">{d}</input>
-            )
-        })
+            );
+        });
         return(
             <div>
-            <div id="OptionsBar" className='modal-container'>
-                <Button bsStyle='success' title="Download data" onClick={this.open}> Download</Button>
+            <div id="OptionsBar" className="modal-container">
+                <Button bsStyle="success" title="Download data" onClick={this.open}> Download</Button>
             </div>
             {
 
@@ -75,26 +73,28 @@ var OptionsBar = React.createClass({
 
 var Visualizations = React.createClass({
     render: function(){
-        console.log("Visualizaitons");
+        //console.log("Visualizaitons");
         var self  = this;
 
         if(this.props.config){
         
             var count=0;
             var visualizations = this.props.config.map(function(visualization){
-                console.log(visualization);
+                //console.log(visualization);
                 //console.log(TabPane);
                 count++;   
                 return(
                     <Tab title={visualization.visualizationType} eventKey={count}>
+                        <div className="visualizationArea">
                         <Visualization config ={visualization} debug={self.props.debug} currData={self.props.currData}  />
+                        </div>
                     </Tab>
                 );            
             });
 
             return(
-                <div id="visualization" className="col-sm-9">
-                    <OptionsBar currData={self.props.currData} />
+                <div id="visualization" className="col-sm-7 col-md-7 col-lg-8">
+                   
                     <Tabs defaultActiveKey={1}>
                         {visualizations}
                     </Tabs>

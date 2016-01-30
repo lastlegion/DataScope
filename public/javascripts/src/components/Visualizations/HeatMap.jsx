@@ -1,7 +1,8 @@
+/* global dc */
 var React = require("react");
 var HeatMap = React.createClass({
     getInitialState: function(){
-        return({dimension: null, group: null})
+        return({dimension: null, group: null});
     },
     componentWillMount: function(){
 
@@ -11,26 +12,31 @@ var HeatMap = React.createClass({
 
     componentDidMount: function(){
         var self = this;
+        //var queryFilter = {};
         var dim = {
-            filter: function(f) {
+            filter: function() {
+                /*
                 if(f) {
-                        queryFilter[attributeName] = f;
-                        refresh();
+                    queryFilter[attributeName] = f;
+                    refresh();
                 } else {
-                      if(queryFilter[attributeName]){
+                    if(queryFilter[attributeName]){
                         delete queryFilter[attributeName];
-                        refresh()
-                      } else {
+                        refresh();
+                    } else {
                         return;
-                      } 
-                    }
+                    } 
+                }
+                */
             },
             filterAll: function() {
-                    delete queryFilter[attributeName];
-                    refresh();
+                /*
+                delete queryFilter[attributeName];
+                refresh();
+                */
             },
             name: function(){
-                    return attributeName;
+                //return attributeName;
             }
         };
         var group = {
@@ -40,7 +46,7 @@ var HeatMap = React.createClass({
                 //return filteredData["heatMap"].values;
             },
             order: function() {
-                return groups["heatMap"];
+                //return groups["heatMap"];
             },
             top: function() {
 
@@ -49,18 +55,20 @@ var HeatMap = React.createClass({
             }
         };
 
-        var config = self.props.config.attributes;
+        var config = self.props.config.attributes;      
+        var xAttr, yAttr;
+        console.log(config);
         for (var i=0; i<config.length; i++) {
-
-            attribute = config  [i];
+            console.log("..........");
+            var attribute = config  [i];
             if(attribute.type == "x"){
-                xAttr = attribute.name;
+                xAttr = attribute.attributeName;
             }
             if(attribute.type == "y"){
-                yAttr = attribute.name;
+                yAttr = attribute.attributeName;
             }    
         }       
-        console.log(dim) 
+        //console.log(dim) 
 
         var heat = dc.heatMap("#heatVis");
         heat.width(45 * 20 + 20)
@@ -71,13 +79,13 @@ var HeatMap = React.createClass({
         .valueAccessor(function(d) { return +d.key[1]; })
         .colorAccessor(function(d) { return +d.value; })
         .title(function(d) {
-            return "AgeatInitialDiagnosis:   " + d.key[0] + "\n" +
-                   "KarnofskyScore:  " + d.key[1] + "\n" +
+            return xAttr + ": " + d.key[0] + "\n" +
+                   yAttr + ": " + d.key[1] + "\n" +
                    "Total: " + ( + d.value);})
         .colors(["#ffffff","#edf8b1","#c7e9b4","#7fcdbb","#41b6c4","#1d91c0","#225ea8","#253494","#081d58"])
         .calculateColorDomain(); 
         //heat.render()  
-        console.log(heat)
+        //console.log(heat)
 
     },
     render: function(){

@@ -1,9 +1,17 @@
 body{
   padding-top:70px;
+  overflow-y: hidden;
+
+}
+#loadingMessage{
+    position: absolute;
+    top: 100;
+    left: 100;
+    z-index: 100;
+    background: #ccc;
 }
 
 #filtering_attributes{
-  font-size: 120%;
   padding: 0 30px 30px 30px;
 }
 #filtering_attributes button{
@@ -11,15 +19,19 @@ body{
 }
 
 #header{
-  background: #556270;
-  margin-bottom: 120px
+  background:#607D8B;
+  margin-bottom: 10px
 }
 #header a{
-  color: #ffeeef;
+  color: #fff;
+  font-weight: 700;
 }
+/*
 #header a:hover{
-  color: #ffffff;z
+  color: #ffffff;
 }
+*/
+
 footer {
   padding: 2em 0 1em 0;
   font-size: 12px;
@@ -28,11 +40,20 @@ footer {
   min-height: 400px;
   padding: 30px;
 }
+/*
 .chart{
   position: relative;
   top: 10px;
   left: 40px;
 }
+*/
+
+
+.navbar-options{
+
+}
+
+
 
 
 
@@ -52,7 +73,7 @@ body {
 
 .sub-header {
   padding-bottom: 10px;
-  border-bottom: 1px solid #eee;
+  //border-bottom: 1px solid #eee;
 }
 
 
@@ -62,7 +83,7 @@ body {
 
 /* Hide for mobile, show later */
 .sidebar {
-  display: block;
+  
 }
 @media (min-width: 768px) {
   .sidebar {
@@ -76,7 +97,7 @@ body {
     z-index: 1000;
     padding: 20px 12px;
 
-   width: 330px;
+    width: 330px;
 
     display: block;
     overflow-x: hidden;
@@ -88,7 +109,9 @@ body {
 
 #interactiveFiltersPanel{
   overflow-y: scroll;
+  background: hsl(211,3%,94%);
   height: 100vh;
+  padding-top: 12x;
 }
 
 /* Sidebar navigation */
@@ -112,7 +135,7 @@ body {
  */
 
 .main {
-  padding: 20px;
+  //padding: 20px;
 }
 .main .page-header {
   margin-top: 0;
@@ -173,10 +196,28 @@ a.panel-reset {
 .inactive{
   color: #333;
 }
-table#dataTable{
 
+/*
+table#dataTable{
+  font-size: 11px;
   overflow-x: scroll;
 }
+*/
+#vis{
+    font-size: 11px;
+    margin: 0 auto;
+}
+/*
+*/
+
+.visualizationArea{
+    margin: 4px auto;
+
+    overflow-y: scroll;
+    height: 100vh;
+    padding-bottom: 120px;
+}
+
 #dataTableNav{
   text-align: center;
 }
@@ -184,6 +225,11 @@ table#dataTable{
 
   padding: 12px;
 }
+//Font size for datatable
+.dataTables_scrollBody{
+    font-size: 11px;
+}
+
 #activeRecords div{
   display: inline;
 
@@ -194,7 +240,7 @@ table#dataTable{
 }
 
 #main{
-  padding: 15px;
+ // padding: 15px;
 }
 
 .nav-tabs > li, .nav-pills > li {
@@ -214,8 +260,13 @@ table#dataTable{
   font-size: small;
 }
 
-#interactiveFiltersPanelSlider{
+#visualization{
+    padding-top: 12px;
+    margin: 0 auto;
+}
 
+#interactiveFiltersPanelSlider{
+    
   float: right;
   margin: 4px;
   z-index: 10000;
@@ -226,15 +277,21 @@ table#dataTable{
 #heat{
   margin: 0px 30px 0 0;
 }
+#imageGrid{
+    width: 93%;
+    margin: 0 auto;
+}
 
 #imageGridPagination{
   padding: 20px;
+  display: none;
 }
 #imageGridPagination .next{
-  position: absolute;
-  right: 20px ;
+	display: hidden;
+
 }
 #imageGridPagination .prev{
+	display: hidden;
 }
 /*React transitions*/
 .imageGridImages-enter {
@@ -260,4 +317,217 @@ table#dataTable{
 
 #OptionsBar button{
   float:right;
+}
+
+
+/* 
+ * SPLOM
+ */
+.splom{
+    padding-left: 40px;
+    width: 1000px;
+    margin: 0 auto;
+}
+.splom-grid-col{
+    display: inline-block;
+    width: 220px;
+    background: #fff;
+    border: 1px solid #ccc;
+    margin: 2px;
+    height: 220px;
+}
+.splom-grid-box div{
+    float: left;
+    padding-top: 10px;
+    padding-left 4px;
+}
+.splom-grid-box{
+    display: inline-block;
+    width: 220px;
+    height: 220px;
+    border: 1px solid #ccc;
+    margin: 1px;
+}
+#splom-title div{
+    width: 220px;
+    font-size: 12px;
+    height: auto;
+    display: inline-block;
+    float: left;
+    padding-left: 4px;
+    border: 1px solid #ccc;
+    margin: 1px;
+    text-align: center;
+}
+div#splom-spacer{
+    width: 8px;
+    transform: none;
+    padding: 0;
+    border: 0;
+}
+
+.splom-title{
+//    margin: 2px;
+}
+.splom-side-title{
+    display: inline-block;
+    float: left;
+    height: 220px;
+    font-size: 12px;
+    width: 10px;
+    display: inline-block;
+    white-space: nowrap;
+    /* this is for shity "non IE" browsers
+       that dosn't support writing-mode */
+    -webkit-transform: translate(1.1em,2em) rotate(270deg);
+       -moz-transform: translate(1.1em,0) rotate(270deg);
+         -o-transform: translate(1.1em,0) rotate(270deg);
+            transform: translate(-0.4em,4em) rotate(270deg);
+    -webkit-transform-origin: 0 0;
+       -moz-transform-origin: 0 0;
+         -o-transform-origin: 0 0;
+            transform-origin: 0 0;
+   /* IE9+ */
+   -ms-transform: none;
+   -ms-transform-origin: none;
+   /* IE8+ */
+   -ms-writing-mode: tb-rl;
+   /* IE7 and below */
+   *writing-mode: tb-rl;
+
+//    word-wrap: break-word;
+ //   padding-left: 140px;
+// transform: rotate(90deg);
+
+ //   transform-origin: left top 0;
+}
+
+
+
+
+/* Filtering Attributes */
+.chart-wrapper{
+    width: 300px;
+}
+.chart-wrapper .chart-stage{
+    background: #455A64;
+    padding: 4px 24px;
+}
+.chart-title, .chart-wrapper .chart-notes{
+   background: #607D8B;
+   color: #fff;
+
+}
+.chart-wrapper .chart-title{
+    color: #fff;
+    border: 0;
+   text-align: left;
+    text-transform: capitalize;
+   font-size: 14px;
+}
+.chart-wrapper{
+    border: 0;
+    background: #455A64;
+}
+.chartAddons{
+    font-size:10.5px;
+    color: #ddd;
+}   
+.chart-notes{
+    border:0;
+    text-align: left;
+    font-weight: normal;
+    font-size: 10px;
+}
+button{
+    color: #ddd;
+//    background: #03A9F4;
+    background:  rgba(69, 90, 100, 0.84);
+//    box-shadow: 2px 2px 2px grey;
+    border: 0;
+}
+.chart-wrapper .chart-notes{
+    border: 0;
+    background: #62737B;
+}
+
+
+.side{
+    max-width: 350px;
+}
+
+#interactiveFiltersPanel{
+    background: #CFD8DC;
+    color: #212121;
+//    max-width: 400px;
+    padding-bottom: 60px;
+    text-align: center;
+}
+#interactiveFiltersPanel h4{
+//    font-family: Roboto, Futura, Arial, Verdana;
+font-size: 16.5;
+}
+
+img {
+  -webkit-transition: opacity 3s ease-in-out;
+  -moz-transition: opacity 2s ease-in-out;
+  -o-transition: opacity 2s ease-in-out;
+  transition: opacity 2s ease-in-out;
+  animation: 3s ease-in 1s 2 reverse both paused slidein;
+
+}
+
+#filteringAttributeTitle{
+    padding-top: 17px;
+    font-size: 17px;
+    
+}
+.navbar-right{
+    padding-right: 30px;
+}
+.navbar-brand{
+    font-weight: 800;
+}
+
+.chart-title-icons{
+    display: inline-block;
+    float: right;
+
+}
+.chart-title-icons svg{
+    opacity: 0.6;
+}
+
+.chart-title-icons svg:hover{
+ //   fill: #fff;
+ opacity: 1;
+}
+#interactiveFiltersPanel{
+    color: #212121;
+}
+#interactiveFiltersPanel .dc-chart .axis text{
+    fill: #73838A;
+}
+
+#interactiveFiltersPanel .dc-chart .axis path, #interactiveFiltersPanel .axis line{
+    stroke: #73838A;   
+}
+
+ul.nav.nav-tabs{
+	text-transform: capitalize;
+}
+
+.grid-item{
+    margin: 0px auto;
+}
+
+#imageGridImages{
+    padding-top: 14px;
+}
+.imageGridItem img{
+    margin: 9px;
+    box-shadow: 0 0 11px gray;
+}
+.imageGridItem img:hover{
+    box-shadow: 0 0 11px black;
 }

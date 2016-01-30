@@ -9,16 +9,20 @@
   "dependencies": {
     "anytojson": "^2.0.4",
     "async": "^1.0.0",
+    "babelify": "~7.2.0",
+    "compression": "^1.6.0",
     "crossfilter": "^1.3.11",
     "express": "3.4.2",
     "extend": "^2.0.1",
- 
     "jade": "*",
     "json2csv": "^2.3.0",
     "jsonschema": "^1.0.2",
+    "masonry-layout": "^3.3.2",
     "node-jsx": "^0.11.0",
     "react": "^0.14.2",
     "react-bootstrap": "^0.27.3",
+    "react-document-title": "^2.0.1",
+    "react-masonry-component": "^2.0.0",
     "react-modal": "^0.3.0",
     "reflux": "^0.1.13",
     "serve-favicon": "~2.1.3",
@@ -32,6 +36,11 @@
     "test": "test"
   },
   "devDependencies": {
+    "babel": "^6.3.26",
+    "babel-core": "^6.4.0",
+    "babel-loader": "^6.2.1",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
     "expect": "^1.8.0",
     "expect.js": "^0.3.1",
     "grunt": "^0.4.5",
@@ -39,15 +48,17 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-nodemon": "^0.3.0",
     "grunt-react": "^0.12.2",
+    "imports-loader": "^0.6.5",
     "mocha": "^2.2.5",
     "react-loader": "^2.0.0",
     "react-tools": "^0.11.2",
-    "superagent": "^1.2.0"
+    "superagent": "^1.2.0",
+    "webpack": "^1.12.11"
   },
   "repository": {
     "type": "git",
     "url": "https://lastlegion@bitbucket.org/BMI/interactive-data-exporation.git"
   },
   "author": "Ganesh Iyer, Ashish Sharma",
-  "license": "BSD-2-Clause"
+  "license": "Apache 2.0"
 }
